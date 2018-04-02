@@ -1,7 +1,10 @@
 import scala.util.matching.Regex
 
-object hw4 {
+object map_and_tuples {
 
+  // First, accept two lists of regex, the tokens that should be reported and those that should be ignored. (The latter would contain white space and comments). 
+  // Next, return a pair consisting of a list of tokens that you found and an integer that indicates the index of the first error—the position in the original string where you were unable to find a match. 
+  // If the entire input string matched, return -1
   def firstMatch(input: String, patterns: List[Regex]): String =
     if (input.isEmpty || patterns.isEmpty) null else {
       val matched = patterns.head.findPrefixOf(input).getOrElse(null)
@@ -27,6 +30,7 @@ object hw4 {
 
   // ------------------------------------------------------------------------------------------------------------------
 
+  // Phone mnemonics problem
   val characters = (s: String) => s.toList.map("" + _)
 
   val letters = Map("2" -> "ABC", "3"-> "DEF", "4"-> "GHI", "5" -> "JKL", "6" -> "MNO", "7" -> "PRS", "8" -> "TUV", "9" -> "WXY").map(e => (e._1, characters(e._2)))
