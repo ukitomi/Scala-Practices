@@ -1,4 +1,7 @@
-object hw2 {
+
+object recursion_practices {
+  
+  // Write a Scala function that produces the longest substring that is common to both a and b. 
   def lcs(a: String, b: String) : String = {
     def lcshelper(a: String, b: String, n: Int) : String = {
       if (n == 0) ""
@@ -18,12 +21,14 @@ object hw2 {
     }
   }
 
+  // Write a Scala function that yields all “subset strings” of a given string, obtained by a subset of the letters in the same order. 
   def subs(s: String) : String = 
     if (s == "") "" else {
       val simplerResult = subs(s.substring(1))
       simplerResult + "|" + s.charAt(0) + simplerResult.replace("|", "|" + s.charAt(0))
     }  
   
+  // Write a Scala function that returns a list of positions where the binary representation of n has a bit of 1. 
   def append(a: List[Int], b: List[Int]): List[Int] = if (a.isEmpty) b else
     a.head :: append(a.tail, b)
     // http://horstmann.com/sjsu/spring2018/cs152/lecture3/#(7)
